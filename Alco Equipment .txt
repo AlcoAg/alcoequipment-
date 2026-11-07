@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alco Equipment | Tractors & Heavy Construction Equipment | Judsonia, AR</title>
+  
+  <!-- Google Fonts & Tailwind CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Phosphor Icons for Industrial UI -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              yellow: '#FFB800',
+              amber: '#E59B00',
+              accent: '#F97316',
+              dark: '#111317',
+              surface: '#1A1D23',
+              card: '#22262F',
+              border: '#2E3542'
+            }
+          },
+          fontFamily: {
+            heading: ['Oswald', 'sans-serif'],
+            sans: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Custom Scrollbar & Texture Patterns */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #111317;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #2E3542;
+      border-radius: 5px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #FFB800;
+    }
+    .tread-pattern {
+      background-color: #111317;
+      background-image: radial-gradient(#272d38 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    .hazard-stripe {
+      background: repeating-linear-gradient(
+        -45deg,
+        #FFB800,
+        #FFB800 12px,
+        #111317 12px,
+        #111317 24px
+      );
+    }
+  </style>
+</head>
+<body class="bg-[#0e1014] text-slate-100 font-sans antialiased selection:bg-brand-yellow selection:text-black">
+
+  <!-- Top Announcement Bar -->
+  <div class="bg-black/90 border-b border-brand-border/60 text-xs py-2 px-4">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-4 text-zinc-400">
+        <span class="inline-flex items-center gap-1.5 text-brand-yellow font-medium">
+          <i class="ph-bold ph-map-pin"></i> 155 Beacon Way, Judsonia, AR 72081
+        </span>
+        <span class="hidden md:inline-flex items-center gap-1">
+          <i class="ph-bold ph-clock"></i> Mon - Fri: 8:00 AM - 5:00 PM | Sat: 8:00 AM - 12:00 PM
+        </span>
+      </div>
+      <div class="flex items-center gap-4 font-semibold">
+        <span class="text-emerald-400 flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span> Arkansas Delivery Available
+        </span>
+        <a href="tel:5014170044" class="text-zinc-200 hover:text-brand-yellow transition flex items-center gap-1">
+          <i class="ph-bold ph-phone-call text-brand-yellow"></i> (501) 417-0044
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Navigation -->
+  <header class="sticky top-0 z-40 bg-[#14171d]/95 backdrop-blur-md border-b border-brand-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-12 h-12 bg-brand-yellow rounded-lg flex items-center justify-center text-black shadow-lg shadow-brand-yellow/20 group-hover:scale-105 transition-transform">
+          <i class="ph-bold ph-tractor text-2xl"></i>
+        </div>
+        <div>
+          <span class="font-heading tracking-wider text-2xl md:text-3xl font-bold uppercase text-white block leading-none">
+            Alco <span class="text-brand-yellow">Equipment</span>
+          </span>
+          <span class="text-[10px] tracking-widest text-zinc-400 font-medium uppercase mt-0.5 block">
+            Judsonia, Arkansas • Machinery Sales
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-8 text-sm font-semibold text-zinc-300">
+        <a href="#inventory" class="hover:text-brand-yellow transition">In-Stock Inventory</a>
+        <a href="#inventory" onclick="filterCategory('tractors')" class="hover:text-brand-yellow transition">Tractors</a>
+        <a href="#inventory" onclick="filterCategory('excavators')" class="hover:text-brand-yellow transition">Construction</a>
+        <a href="#financing" class="hover:text-brand-yellow transition">Financing & Calculator</a>
+        <a href="#about" class="hover:text-brand-yellow transition">Why Alco</a>
+        <a href="#contact" class="hover:text-brand-yellow transition">Location & Contact</a>
+      </nav>
+
+      <!-- CTA Action -->
+      <div class="hidden sm:flex items-center gap-3">
+        <a href="tel:5014170044" class="px-5 py-2.5 rounded-md bg-brand-yellow text-black font-heading tracking-wider uppercase text-sm font-bold hover:bg-amber-400 transition-all shadow-md flex items-center gap-2">
+          <i class="ph-bold ph-phone"></i> (501) 417-0044
+        </a>
+      </div>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button id="mobileMenuBtn" aria-label="Open navigation menu" class="lg:hidden p-2 text-zinc-300 hover:text-white focus:outline-none">
+        <i class="ph-bold ph-list text-2xl"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation Dropdown -->
+    <div id="mobileMenu" class="hidden lg:hidden bg-brand-dark border-b border-brand-border px-6 py-4 space-y-3">
+      <a href="#inventory" class="block text-zinc-200 hover:text-brand-yellow font-medium py-1">In-Stock Inventory</a>
+      <a href="#inventory" onclick="filterCategory('tractors')" class="block text-zinc-200 hover:text-brand-yellow font-medium py-1">Tractors</a>
+      <a href="#inventory" onclick="filterCategory('excavators')" class="block text-zinc-200 hover:text-brand-yellow font-medium py-1">Construction Machinery</a>
+      <a href="#financing" class="block text-zinc-200 hover:text-brand-yellow font-medium py-1">Financing & Monthly Calculator</a>
+      <a href="#about" class="block text-zinc-200 hover:text-brand-yellow font-medium py-1">Dealership Info</a>
+      <a href="#contact" class="block text-zinc-200 hover:text-brand-yellow font-medium py-1">Contact & Directions</a>
+      <div class="pt-2 border-t border-zinc-800">
+        <a href="tel:5014170044" class="w-full py-2.5 rounded bg-brand-yellow text-black font-heading font-bold text-center block uppercase">
+          Call (501) 417-0044
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section with Industrial Banner -->
+  <section class="relative min-h-[580px] lg:min-h-[660px] flex items-center bg-brand-dark tread-pattern overflow-hidden">
+    <!-- Ambient Radial Glows -->
+    <div class="absolute top-1/4 -left-32 w-96 h-96 bg-brand-yellow/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-10 right-0 w-[500px] h-[500px] bg-brand-accent/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-7 space-y-6">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-border/60 border border-brand-yellow/30 text-brand-yellow text-xs font-semibold tracking-wider uppercase">
+          <i class="ph-fill ph-shield-check text-sm"></i> Certified Heavy Equipment • White County, AR
+        </div>
+        <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-tight text-white leading-[1.08]">
+          Work-Ready Tractors &amp; <span class="text-brand-yellow underline decoration-brand-yellow/40">Construction Gear</span>
+        </h1>
+        <p class="text-zinc-300 text-base sm:text-lg max-w-2xl font-normal leading-relaxed">
+          Heavy duty performance with honest, no-nonsense local Arkansas deals. From compact farm tractors and enclosed cabs to mini excavators, track skid steers, and hydraulic attachments—ready for pickup in Judsonia or delivery to your jobsite.
+        </p>
+
+        <!-- CTA Action Buttons -->
+        <div class="flex flex-wrap items-center gap-4 pt-2">
+          <a href="#inventory" class="px-7 py-3.5 bg-brand-yellow hover:bg-amber-400 text-black font-heading text-base uppercase font-bold tracking-wider rounded-md shadow-lg shadow-brand-yellow/20 transition-all flex items-center gap-2 group">
+            <span>View In-Stock Inventory</span>
+            <i class="ph-bold ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
+          </a>
+          <button onclick="openCustomQuoteModal()" class="px-7 py-3.5 bg-brand-surface hover:bg-brand-card border border-brand-border text-white font-heading text-base uppercase font-semibold tracking-wider rounded-md transition-all flex items-center gap-2">
+            <i class="ph-bold ph-file-text text-brand-yellow"></i>
+            <span>Request Fast Quote</span>
+          </button>
+        </div>
+
+        <!-- Trust Badges -->
+        <div class="pt-6 grid grid-cols-3 gap-4 border-t border-brand-border/80">
+          <div>
+            <span class="block font-heading text-2xl font-bold text-white tracking-wide">100%</span>
+            <span class="text-xs text-zinc-400 uppercase font-medium">Pre-Inspected</span>
+          </div>
+          <div>
+            <span class="block font-heading text-2xl font-bold text-brand-yellow tracking-wide">Fast</span>
+            <span class="text-xs text-zinc-400 uppercase font-medium">Statewide Delivery</span>
+          </div>
+          <div>
+            <span class="block font-heading text-2xl font-bold text-white tracking-wide">Flexible</span>
+            <span class="text-xs text-zinc-400 uppercase font-medium">Commercial Financing</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Visual Card / Machine Graphic Preview -->
+      <div class="lg:col-span-5 relative">
+        <div class="relative bg-gradient-to-b from-brand-surface to-brand-card p-4 rounded-2xl border border-brand-border/80 shadow-2xl">
+          <!-- Live Inventory Tag -->
+          <div class="absolute top-7 left-7 z-20 bg-black/80 backdrop-blur-md border border-brand-yellow/40 px-3 py-1.5 rounded text-xs font-bold text-brand-yellow flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-brand-yellow animate-pulse"></span> FEATURED IN-STOCK
+          </div>
+
+          <!-- Featured Equipment Graphic Container -->
+          <div class="h-64 sm:h-72 w-full rounded-xl overflow-hidden bg-gradient-to-tr from-zinc-900 to-zinc-800 flex items-center justify-center relative p-6">
+            <svg class="w-full h-full max-h-56 text-brand-yellow/90 filter drop-shadow-xl" viewBox="0 0 500 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Tractor SVG Silhouette Blueprint Graphic -->
+              <circle cx="140" cy="230" r="65" stroke="#FFB800" stroke-width="8" fill="#14171d"/>
+              <circle cx="140" cy="230" r="45" stroke="#FFB800" stroke-dasharray="8 6" stroke-width="4"/>
+              <circle cx="140" cy="230" r="18" fill="#FFB800"/>
+              
+              <circle cx="380" cy="245" r="50" stroke="#FFB800" stroke-width="8" fill="#14171d"/>
+              <circle cx="380" cy="245" r="32" stroke="#FFB800" stroke-dasharray="6 4" stroke-width="4"/>
+              <circle cx="380" cy="245" r="14" fill="#FFB800"/>
+
+              <!-- Chassis & Engine Hood -->
+              <path d="M140 180 L230 180 L250 140 L380 140 L400 200 L410 240 L330 240 L310 180 L180 180 Z" fill="#2E3542" stroke="#FFB800" stroke-width="4"/>
+              <path d="M250 140 H390 L405 200 H250 Z" fill="#FFB800"/>
+
+              <!-- Enclosed Deluxe Cab -->
+              <path d="M150 180 L170 80 L260 80 L250 180 Z" fill="#3B82F6" fill-opacity="0.25" stroke="#FFB800" stroke-width="5"/>
+              <line x1="165" y1="80" x2="265" y2="80" stroke="#FFB800" stroke-width="8"/>
+              <line x1="210" y1="80" x2="210" y2="180" stroke="#FFB800" stroke-width="4"/>
+
+              <!-- Exhaust Stack -->
+              <path d="M260 80 V50 H268 V80" stroke="#E5E7EB" stroke-width="4" fill="#9CA3AF"/>
+
+              <!-- Front Loader Arms & Bucket -->
+              <path d="M230 170 L340 130 L430 170 L460 250" stroke="#F97316" stroke-width="9" stroke-linecap="round"/>
+              <path d="M440 220 L480 225 L475 270 L435 265 Z" fill="#374151" stroke="#F97316" stroke-width="4"/>
+              <line x1="260" y1="160" x2="330" y2="190" stroke="#CBD5E1" stroke-width="5"/>
+            </svg>
+            <div class="absolute bottom-3 right-4 bg-black/60 px-2 py-1 rounded text-[11px] text-zinc-300 tracking-wide font-mono">
+              ALCO-55CAB • 4WD DIESEL
+            </div>
+          </div>
+
+          <div class="p-4 space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-semibold text-brand-yellow uppercase tracking-wider">Heavy Spec Tractor</span>
+              <span class="text-xs font-bold text-emerald-400 bg-emerald-950/60 border border-emerald-800 px-2 py-0.5 rounded">Ready For Pickup</span>
+            </div>
+            <h3 class="font-heading text-xl font-bold uppercase text-white">55HP 4WD Cab Tractor + Heavy Front Loader</h3>
+            <p class="text-xs text-zinc-400">Heated/AC Enclosed Cab, Quick Attach Bucket, Dual Rear Hydraulics, Industrial R4 Tires.</p>
+            <div class="flex items-center justify-between pt-2 border-t border-brand-border">
+              <div>
+                <span class="text-[10px] uppercase text-zinc-400 block font-semibold">Special Lot Price</span>
+                <span class="font-heading text-2xl font-bold text-white">$27,900</span>
+              </div>
+              <button onclick="openEquipmentModal(1)" class="px-4 py-2 bg-brand-yellow text-black font-heading font-bold uppercase text-xs rounded hover:bg-amber-400 transition">
+                Inspect Specs
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Assurance Banner -->
+  <section class="border-y border-brand-border bg-[#14171f]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 grid grid-cols-1 md:grid-cols-4 gap-6">
+      <div class="flex items-start gap-3.5">
+        <div class="w-10 h-10 rounded bg-brand-card border border-brand-border flex items-center justify-center text-brand-yellow text-xl shrink-0">
+          <i class="ph-bold ph-truck"></i>
+        </div>
+        <div>
+          <h4 class="font-heading uppercase text-sm font-bold text-white tracking-wide">Direct Delivery</h4>
+          <p class="text-xs text-zinc-400 mt-1">Hauling directly to your farm, ranch, or commercial jobsite across Arkansas.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-3.5">
+        <div class="w-10 h-10 rounded bg-brand-card border border-brand-border flex items-center justify-center text-brand-yellow text-xl shrink-0">
+          <i class="ph-bold ph-wrench"></i>
+        </div>
+        <div>
+          <h4 class="font-heading uppercase text-sm font-bold text-white tracking-wide">Multi-Point Inspected</h4>
+          <p class="text-xs text-zinc-400 mt-1">Every machine runs through strict hydraulic, powertrain, and safety checks.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-3.5">
+        <div class="w-10 h-10 rounded bg-brand-card border border-brand-border flex items-center justify-center text-brand-yellow text-xl shrink-0">
+          <i class="ph-bold ph-currency-dollar"></i>
+        </div>
+        <div>
+          <h4 class="font-heading uppercase text-sm font-bold text-white tracking-wide">Honest Pricing</h4>
+          <p class="text-xs text-zinc-400 mt-1">Clear numbers without ridiculous dealership prep surcharges or hidden fees.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-3.5">
+        <div class="w-10 h-10 rounded bg-brand-card border border-brand-border flex items-center justify-center text-brand-yellow text-xl shrink-0">
+          <i class="ph-bold ph-handshake"></i>
+        </div>
+        <div>
+          <h4 class="font-heading uppercase text-sm font-bold text-white tracking-wide">Ag &amp; Business Credit</h4>
+          <p class="text-xs text-zinc-400 mt-1">Low monthly options, equipment leases, and competitive finance terms.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Inventory Showcase Section -->
+  <section id="inventory" class="py-16 sm:py-20 bg-brand-dark max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+      <div>
+        <div class="inline-flex items-center gap-1.5 text-brand-yellow text-xs font-semibold uppercase tracking-widest mb-2">
+          <i class="ph-bold ph-warehouse"></i> Judsonia Yard Inventory
+        </div>
+        <h2 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold uppercase text-white tracking-tight">
+          Current Available Equipment
+        </h2>
+        <p class="text-zinc-400 text-sm mt-2 max-w-xl">
+          Browse our live equipment stock ready for inspection at 155 Beacon Way. Click any unit to see engine specs, hydraulic flow, attachments, and payment terms.
+        </p>
+      </div>
+
+      <!-- Live Search Box -->
+      <div class="w-full md:w-72">
+        <div class="relative">
+          <i class="ph-bold ph-magnifying-glass absolute left-3.5 top-3.5 text-zinc-500 text-lg"></i>
+          <input 
+            type="text" 
+            id="inventorySearch" 
+            placeholder="Search HP, Cab, Excavator..." 
+            class="w-full bg-brand-surface border border-brand-border rounded-lg pl-10 pr-4 py-2.5 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-brand-yellow transition"
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Category Filters -->
+    <div class="flex flex-wrap items-center gap-2 pb-6 border-b border-brand-border mb-8 overflow-x-auto">
+      <button onclick="filterCategory('all')" class="cat-btn active-cat px-4 py-2 rounded-md font-heading text-sm uppercase font-bold tracking-wider transition bg-brand-yellow text-black" data-cat="all">
+        All Stock (<span id="count-all">6</span>)
+      </button>
+      <button onclick="filterCategory('tractors')" class="cat-btn px-4 py-2 rounded-md font-heading text-sm uppercase font-semibold tracking-wider transition bg-brand-surface text-zinc-300 hover:text-white border border-brand-border" data-cat="tractors">
+        Tractors (Cab &amp; ROPS)
+      </button>
+      <button onclick="filterCategory('excavators')" class="cat-btn px-4 py-2 rounded-md font-heading text-sm uppercase font-semibold tracking-wider transition bg-brand-surface text-zinc-300 hover:text-white border border-brand-border" data-cat="excavators">
+        Mini Excavators
+      </button>
+      <button onclick="filterCategory('loaders')" class="cat-btn px-4 py-2 rounded-md font-heading text-sm uppercase font-semibold tracking-wider transition bg-brand-surface text-zinc-300 hover:text-white border border-brand-border" data-cat="loaders">
+        Skid Steers &amp; Loaders
+      </button>
+      <button onclick="filterCategory('attachments')" class="cat-btn px-4 py-2 rounded-md font-heading text-sm uppercase font-semibold tracking-wider transition bg-brand-surface text-zinc-300 hover:text-white border border-brand-border" data-cat="attachments">
+        Attachments &amp; Implements
+      </button>
+    </div>
+
+    <!-- Inventory Cards Grid -->
+    <div id="equipmentGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Items dynamically populated by JavaScript -->
+    </div>
+
+    <!-- Zero Results Message -->
+    <div id="noResults" class="hidden text-center py-16 bg-brand-surface rounded-xl border border-brand-border">
+      <i class="ph-light ph-warning-circle text-5xl text-brand-yellow mb-3 block"></i>
+      <h3 class="font-heading text-xl uppercase font-bold text-white">No Matching Equipment Found</h3>
+      <p class="text-zinc-400 text-sm mt-1 max-w-md mx-auto">We frequently acquire fresh units. Call our Judsonia desk directly to verify upcoming arrivals or custom orders.</p>
+      <a href="tel:5014170044" class="inline-flex items-center gap-2 mt-4 px-5 py-2.5 bg-brand-yellow text-black font-heading font-bold uppercase rounded text-sm">
+        <i class="ph-bold ph-phone"></i> Call (501) 417-0044
+      </a>
+    </div>
+  </section>
+
+  <!-- Interactive Equipment Financing Calculator -->
+  <section id="financing" class="py-16 bg-[#13161c] border-y border-brand-border tread-pattern">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <!-- Financing Content & Calculator Intro -->
+        <div class="lg:col-span-5 space-y-5">
+          <div class="inline-flex items-center gap-1.5 text-brand-yellow text-xs font-semibold uppercase tracking-wider">
+            <i class="ph-bold ph-calculator"></i> Flexible Ownership
+          </div>
+          <h2 class="font-heading text-3xl sm:text-4xl font-bold uppercase text-white leading-tight">
+            Equipment Financing &amp; Payment Estimator
+          </h2>
+          <p class="text-zinc-300 text-sm leading-relaxed">
+            Keep your operating capital liquid. Whether you’re an independent land clearing contractor, hobby farmer, or commercial builder, we connect you with competitive rates, ag exemption programs, and fast approvals.
+          </p>
+
+          <ul class="space-y-3 pt-2 text-sm text-zinc-300">
+            <li class="flex items-center gap-2.5">
+              <i class="ph-fill ph-check-circle text-brand-yellow text-lg"></i>
+              <span>Terms from 24 to 84 months available</span>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <i class="ph-fill ph-check-circle text-brand-yellow text-lg"></i>
+              <span>Low-down payment programs for agricultural businesses</span>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <i class="ph-fill ph-check-circle text-brand-yellow text-lg"></i>
+              <span>Same-day pre-approval assistance in Judsonia</span>
+            </li>
+          </ul>
+
+          <div class="pt-4">
+            <div class="p-4 rounded-lg bg-brand-surface/80 border border-brand-border">
+              <span class="text-xs uppercase text-zinc-400 font-bold block mb-1">Have a trade-in?</span>
+              <p class="text-xs text-zinc-300">We take running tractors, backhoes, trailers, and excavators toward your down payment.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Calculator Widget -->
+        <div class="lg:col-span-7 bg-brand-surface rounded-2xl border border-brand-border p-6 sm:p-8 shadow-2xl">
+          <div class="flex items-center justify-between pb-4 border-b border-brand-border mb-6">
+            <h3 class="font-heading uppercase text-xl font-bold text-white flex items-center gap-2">
+              <i class="ph-bold ph-coins text-brand-yellow"></i> Loan Payment Calculator
+            </h3>
+            <span class="text-xs text-brand-yellow bg-brand-yellow/10 border border-brand-yellow/20 px-2.5 py-1 rounded">Estimated Monthly</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+            <!-- Equipment Price -->
+            <div>
+              <div class="flex justify-between text-xs font-semibold mb-1">
+                <label for="calcPrice" class="text-zinc-300 uppercase">Equipment Price ($)</label>
+                <span id="priceValDisplay" class="text-brand-yellow font-bold">$28,500</span>
+              </div>
+              <input type="range" id="calcPrice" min="5000" max="95000" step="500" value="28500" class="w-full accent-brand-yellow h-2 bg-zinc-800 rounded-lg cursor-pointer">
+              <div class="flex justify-between text-[10px] text-zinc-500 mt-1">
+                <span>$5,000</span>
+                <span>$95,000</span>
+              </div>
+            </div>
+
+            <!-- Down Payment -->
+            <div>
+              <div class="flex justify-between text-xs font-semibold mb-1">
+                <label for="calcDown" class="text-zinc-300 uppercase">Down Payment ($)</label>
+                <span id="downValDisplay" class="text-brand-yellow font-bold">$3,000</span>
+              </div>
+              <input type="range" id="calcDown" min="0" max="35000" step="500" value="3000" class="w-full accent-brand-yellow h-2 bg-zinc-800 rounded-lg cursor-pointer">
+              <div class="flex justify-between text-[10px] text-zinc-500 mt-1">
+                <span>$0</span>
+                <span>$35,000</span>
+              </div>
+            </div>
+
+            <!-- Interest Rate -->
+            <div>
+              <div class="flex justify-between text-xs font-semibold mb-1">
+                <label for="calcRate" class="text-zinc-300 uppercase">Estimated APR (%)</label>
+                <span id="rateValDisplay" class="text-brand-yellow font-bold">6.9%</span>
+              </div>
+              <input type="range" id="calcRate" min="2.9" max="15.9" step="0.1" value="6.9" class="w-full accent-brand-yellow h-2 bg-zinc-800 rounded-lg cursor-pointer">
+              <div class="flex justify-between text-[10px] text-zinc-500 mt-1">
+                <span>2.9%</span>
+                <span>15.9%</span>
+              </div>
+            </div>
+
+            <!-- Term Length -->
+            <div>
+              <label for="calcTerm" class="block text-xs font-semibold text-zinc-300 uppercase mb-1">Financing Term</label>
+              <select id="calcTerm" class="w-full bg-brand-dark border border-brand-border rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-brand-yellow">
+                <option value="36">36 Months (3 Years)</option>
+                <option value="48">48 Months (4 Years)</option>
+                <option value="60" selected>60 Months (5 Years)</option>
+                <option value="72">72 Months (6 Years)</option>
+                <option value="84">84 Months (7 Years)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Calculated Output Banner -->
+          <div class="bg-gradient-to-r from-zinc-900 via-brand-dark to-zinc-900 border border-brand-yellow/30 p-5 rounded-xl flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>
+              <span class="text-xs uppercase text-zinc-400 font-semibold block">Estimated Monthly Payment</span>
+              <div class="flex items-baseline gap-2">
+                <span id="monthlyPaymentDisplay" class="font-heading text-4xl font-bold text-brand-yellow">$503</span>
+                <span class="text-xs text-zinc-400 font-normal">/ month*</span>
+              </div>
+              <span class="text-[10px] text-zinc-500 block mt-0.5">*Before taxes, fees, and applicable insurance. Subject to credit check.</span>
+            </div>
+            <button onclick="applyForCalculatedDeal()" class="w-full sm:w-auto px-6 py-3 bg-brand-yellow hover:bg-amber-400 text-black font-heading font-bold uppercase text-sm tracking-wide rounded-md transition shadow-md whitespace-nowrap">
+              Lock In This Quote
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Alco Equipment & Local Judsonia Edge -->
+  <section id="about" class="py-16 bg-brand-dark max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-14">
+      <span class="text-brand-yellow text-xs font-semibold uppercase tracking-widest block mb-2">Built For Arkansas Operators</span>
+      <h2 class="font-heading text-3xl sm:text-4xl font-bold uppercase text-white tracking-tight">
+        Why Farmers &amp; Contractors Choose Alco
+      </h2>
+      <p class="text-zinc-400 text-sm mt-3">
+        We understand downtime costs money. Alco Equipment exists to deliver capable, reliable tractors and excavators without the mega-dealership runaround.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="bg-brand-surface p-7 rounded-xl border border-brand-border relative overflow-hidden group hover:border-brand-yellow/40 transition">
+        <div class="w-12 h-12 rounded-lg bg-brand-yellow/10 border border-brand-yellow/30 text-brand-yellow flex items-center justify-center text-2xl mb-4 group-hover:bg-brand-yellow group-hover:text-black transition-colors">
+          <i class="ph-bold ph-map-pin-line"></i>
+        </div>
+        <h3 class="font-heading text-xl uppercase font-bold text-white mb-2">Convenient Arkansas Location</h3>
+        <p class="text-sm text-zinc-400 leading-relaxed">
+          Situated at 155 Beacon Way in Judsonia, Arkansas—easily accessible from US-67 / Future I-57. Stop by during yard hours to test run any machine on site.
+        </p>
+      </div>
+
+      <div class="bg-brand-surface p-7 rounded-xl border border-brand-border relative overflow-hidden group hover:border-brand-yellow/40 transition">
+        <div class="w-12 h-12 rounded-lg bg-brand-yellow/10 border border-brand-yellow/30 text-brand-yellow flex items-center justify-center text-2xl mb-4 group-hover:bg-brand-yellow group-hover:text-black transition-colors">
+          <i class="ph-bold ph-gauge"></i>
+        </div>
+        <h3 class="font-heading text-xl uppercase font-bold text-white mb-2">High-Spec Heavy Hydraulics</h3>
+        <p class="text-sm text-zinc-400 leading-relaxed">
+          From aux hydraulic plumbing for grapples and augers to heavy-duty cast counterweights and quick-attach buckets, our inventory is configured for tough jobs.
+        </p>
+      </div>
+
+      <div class="bg-brand-surface p-7 rounded-xl border border-brand-border relative overflow-hidden group hover:border-brand-yellow/40 transition">
+        <div class="w-12 h-12 rounded-lg bg-brand-yellow/10 border border-brand-yellow/30 text-brand-yellow flex items-center justify-center text-2xl mb-4 group-hover:bg-brand-yellow group-hover:text-black transition-colors">
+          <i class="ph-bold ph-phone-incoming"></i>
+        </div>
+        <h3 class="font-heading text-xl uppercase font-bold text-white mb-2">Talk Directly With Decision Makers</h3>
+        <p class="text-sm text-zinc-400 leading-relaxed">
+          No tier-one phone menus or pushy commission salesmen. Call (501) 417-0044 and get straight answers on specs, pricing, and freight delivery schedules.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Location, Map & Contact Form Section -->
+  <section id="contact" class="py-16 bg-[#12151b] border-t border-brand-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+        
+        <!-- Dealership Information -->
+        <div class="lg:col-span-5 space-y-6">
+          <div>
+            <span class="text-brand-yellow text-xs font-semibold uppercase tracking-widest block mb-1">Visit The Yard</span>
+            <h2 class="font-heading text-3xl sm:text-4xl font-bold uppercase text-white">Alco Equipment Yard</h2>
+            <p class="text-zinc-400 text-sm mt-2">
+              Walk-ins and machine inspections are welcome. Come sit in the cab, test the bucket controls, and talk gear with our team.
+            </p>
+          </div>
+
+          <div class="space-y-4 text-sm">
+            <div class="flex items-start gap-3.5 bg-brand-surface p-4 rounded-lg border border-brand-border">
+              <i class="ph-bold ph-map-pin text-xl text-brand-yellow shrink-0 mt-0.5"></i>
+              <div>
+                <strong class="text-white block font-medium">Physical Address:</strong>
+                <span class="text-zinc-300">155 Beacon Way, Judsonia, AR 72081</span>
+                <span class="text-xs text-zinc-500 block mt-0.5">White County, Central Arkansas</span>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3.5 bg-brand-surface p-4 rounded-lg border border-brand-border">
+              <i class="ph-bold ph-phone-call text-xl text-brand-yellow shrink-0 mt-0.5"></i>
+              <div>
+                <strong class="text-white block font-medium">Phone / Text Inquiries:</strong>
+                <a href="tel:5014170044" class="text-brand-yellow hover:underline text-base font-bold">(501) 417-0044</a>
+                <span class="text-xs text-zinc-500 block mt-0.5">Direct Equipment Specialist line</span>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3.5 bg-brand-surface p-4 rounded-lg border border-brand-border">
+              <i class="ph-bold ph-clock-user text-xl text-brand-yellow shrink-0 mt-0.5"></i>
+              <div>
+                <strong class="text-white block font-medium">Operating Hours:</strong>
+                <div class="text-zinc-300 text-xs mt-1 space-y-1">
+                  <div class="flex justify-between gap-6"><span>Monday – Friday:</span> <span>8:00 AM – 5:00 PM</span></div>
+                  <div class="flex justify-between gap-6"><span>Saturday:</span> <span>8:00 AM – 12:00 PM</span></div>
+                  <div class="flex justify-between gap-6 text-zinc-500"><span>Sunday:</span> <span>Closed (By Appointment)</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Direct Quote & Message Form -->
+        <div class="lg:col-span-7 bg-brand-surface p-6 sm:p-8 rounded-2xl border border-brand-border shadow-xl">
+          <div class="mb-6">
+            <h3 class="font-heading text-2xl font-bold uppercase text-white">Inquire or Request Equipment Quote</h3>
+            <p class="text-xs text-zinc-400 mt-1">Fill out the brief form below and our equipment director will respond within 2 business hours.</p>
+          </div>
+
+          <form id="contactForm" onsubmit="handleContactSubmit(event)" class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="leadName" class="block text-xs font-semibold text-zinc-300 uppercase mb-1">Your Full Name *</label>
+                <input type="text" id="leadName" required placeholder="John Miller" class="w-full bg-brand-dark border border-brand-border rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-brand-yellow">
+              </div>
+              <div>
+                <label for="leadPhone" class="block text-xs font-semibold text-zinc-300 uppercase mb-1">Phone Number *</label>
+                <input type="tel" id="leadPhone" required placeholder="(501) 555-0199" class="w-full bg-brand-dark border border-brand-border rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-brand-yellow">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="leadInterest" class="block text-xs font-semibold text-zinc-300 uppercase mb-1">Interested Equipment</label>
+                <select id="leadInterest" class="w-full bg-brand-dark border border-brand-border rounded-lg px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-brand-yellow">
+                  <option value="Tractors (Compact / Cab)">Tractors (Compact / Enclosed Cab)</option>
+                  <option value="Mini Excavator">Mini Excavator (1.8T to 3.5T)</option>
+                  <option value="Skid Steer / Loader">Skid Steer / Compact Track Loader</option>
+                  <option value="Attachments / Implements">Hydraulic Attachments & Implements</option>
+                  <option value="Custom Order / Other">Other Equipment / Custom Request</option>
+                </select>
+              </div>
+              <div>
+                <label for="leadZip" class="block text-xs font-semibold text-zinc-300 uppercase mb-1">Delivery Zip Code or Pickup</label>
+                <input type="text" id="leadZip" placeholder="e.g. 72081 or Little Rock area" class="w-full bg-brand-dark border border-brand-border rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-brand-yellow">
+              </div>
+            </div>
+
+            <div>
+              <label for="leadMessage" class="block text-xs font-semibold text-zinc-300 uppercase mb-1">Additional Details / Questions</label>
+              <textarea id="leadMessage" rows="3" placeholder="Tell us about your property size, specific attachments needed, or trade-in gear..." class="w-full bg-brand-dark border border-brand-border rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-brand-yellow"></textarea>
+            </div>
+
+            <button type="submit" class="w-full py-3.5 bg-brand-yellow hover:bg-amber-400 text-black font-heading font-bold uppercase tracking-wider text-base rounded-lg transition-all shadow-lg flex items-center justify-center gap-2">
+              <i class="ph-bold ph-paper-plane-tilt"></i>
+              <span>Send Request to Alco Equipment</span>
+            </button>
+            <p class="text-[11px] text-zinc-500 text-center">We respect your privacy. No spam. You will be contacted directly by our local Judsonia team.</p>
+          </form>
+
+          <!-- Success Notification inside Form Box -->
+          <div id="formSuccessMessage" class="hidden mt-4 p-4 rounded-lg bg-emerald-950/80 border border-emerald-600 text-emerald-200 text-sm flex items-center gap-3">
+            <i class="ph-bold ph-check-circle text-2xl text-emerald-400"></i>
+            <div>
+              <strong class="font-bold block">Quote Request Received!</strong>
+              <span>Thanks! Our equipment specialist in Judsonia will reach out to you shortly.</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Industrial Footer -->
+  <footer class="bg-black border-t border-brand-border text-zinc-400 text-xs py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8 pb-8 border-b border-brand-border/60">
+        <!-- Brand Info -->
+        <div class="space-y-3">
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 bg-brand-yellow rounded flex items-center justify-center text-black font-bold">
+              <i class="ph-bold ph-tractor text-lg"></i>
+            </div>
+            <span class="font-heading tracking-wider text-xl font-bold uppercase text-white">Alco <span class="text-brand-yellow">Equipment</span></span>
+          </div>
+          <p class="text-zinc-400 leading-relaxed">
+            Your trusted Arkansas partner for dependable agricultural tractors, mini excavators, and commercial attachments.
+          </p>
+          <span class="inline-block text-zinc-300 font-medium">155 Beacon Way, Judsonia, AR 72081</span>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h5 class="font-heading uppercase text-sm font-bold text-white mb-3">Quick Navigation</h5>
+          <ul class="space-y-2">
+            <li><a href="#inventory" class="hover:text-brand-yellow transition">Available Inventory</a></li>
+            <li><a href="#financing" class="hover:text-brand-yellow transition">Payment Calculator</a></li>
+            <li><a href="#about" class="hover:text-brand-yellow transition">About Dealership</a></li>
+            <li><a href="#contact" class="hover:text-brand-yellow transition">Visit Yard / Directions</a></li>
+          </ul>
+        </div>
+
+        <!-- Equipment Categories -->
+        <div>
+          <h5 class="font-heading uppercase text-sm font-bold text-white mb-3">Machinery Fleet</h5>
+          <ul class="space-y-2">
+            <li><a href="#inventory" onclick="filterCategory('tractors')" class="hover:text-brand-yellow transition">Compact Tractors</a></li>
+            <li><a href="#inventory" onclick="filterCategory('tractors')" class="hover:text-brand-yellow transition">Enclosed Cab Tractors</a></li>
+            <li><a href="#inventory" onclick="filterCategory('excavators')" class="hover:text-brand-yellow transition">Mini Excavators with Thumb</a></li>
+            <li><a href="#inventory" onclick="filterCategory('attachments')" class="hover:text-brand-yellow transition">Rotary Cutters &amp; Grapples</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact & Hours -->
+        <div>
+          <h5 class="font-heading uppercase text-sm font-bold text-white mb-3">Dealership Contacts</h5>
+          <p class="text-white text-base font-heading font-bold mb-1">
+            <i class="ph-bold ph-phone text-brand-yellow"></i> (501) 417-0044
+          </p>
+          <p class="text-zinc-400 mb-2">Call or text for immediate availability check</p>
+          <div class="hazard-stripe h-1.5 w-24 rounded-full mt-3"></div>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-zinc-500">
+        <p>&copy; <span id="currentYear">2026</span> Alco Equipment. All rights reserved. Judsonia, Arkansas.</p>
+        <p class="text-[11px]">Product specifications, inventory counts, and pricing are subject to verification.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Interactive Equipment Details Modal -->
+  <div id="equipmentModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+    <div class="bg-brand-surface border border-brand-border max-w-3xl w-full rounded-2xl overflow-hidden shadow-2xl my-8 relative">
+      <!-- Modal Close Button -->
+      <button onclick="closeEquipmentModal()" class="absolute top-4 right-4 z-20 w-9 h-9 rounded-full bg-black/70 hover:bg-black text-white flex items-center justify-center text-lg transition">
+        <i class="ph-bold ph-x"></i>
+      </button>
+
+      <!-- Modal Visual Header -->
+      <div id="modalVisualBanner" class="h-60 sm:h-72 w-full bg-gradient-to-r from-zinc-900 to-zinc-800 flex items-center justify-center relative p-6">
+        <div id="modalIconContainer" class="w-full h-full flex items-center justify-center">
+          <!-- Dynamic SVG injected here -->
+        </div>
+        <div class="absolute bottom-3 left-4">
+          <span id="modalCategoryBadge" class="bg-brand-yellow text-black text-xs uppercase font-bold px-2.5 py-1 rounded"></span>
+        </div>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="p-6 sm:p-8 space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-brand-border pb-4">
+          <div>
+            <h3 id="modalTitle" class="font-heading text-2xl sm:text-3xl font-bold uppercase text-white"></h3>
+            <p id="modalSub" class="text-xs text-zinc-400 mt-1"></p>
+          </div>
+          <div class="text-left sm:text-right">
+            <span class="text-[10px] text-zinc-400 uppercase font-semibold block">Asking Price</span>
+            <span id="modalPrice" class="font-heading text-3xl font-bold text-brand-yellow"></span>
+          </div>
+        </div>
+
+        <!-- Specs Grid -->
+        <div>
+          <h4 class="font-heading text-sm uppercase text-zinc-300 font-bold mb-3 flex items-center gap-1.5">
+            <i class="ph-bold ph-sliders text-brand-yellow"></i> Machine Specifications
+          </h4>
+          <div id="modalSpecsGrid" class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+            <!-- Dynamic Spec Boxes -->
+          </div>
+        </div>
+
+        <!-- Description Paragraph -->
+        <div>
+          <h4 class="font-heading text-sm uppercase text-zinc-300 font-bold mb-1.5">Overview &amp; Features</h4>
+          <p id="modalDescription" class="text-zinc-300 text-sm leading-relaxed"></p>
+        </div>
+
+        <!-- Modal Bottom Actions -->
+        <div class="pt-4 border-t border-brand-border flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div class="flex items-center gap-2 text-xs text-emerald-400">
+            <i class="ph-bold ph-check-circle text-base"></i>
+            <span>Verified in stock at Judsonia yard</span>
+          </div>
+          <div class="flex items-center gap-3 w-full sm:w-auto">
+            <a id="modalCallBtn" href="tel:5014170044" class="flex-1 sm:flex-none px-5 py-2.5 bg-brand-surface border border-brand-border text-white hover:border-brand-yellow text-xs font-heading font-bold uppercase rounded flex items-center justify-center gap-2">
+              <i class="ph-bold ph-phone text-brand-yellow"></i> (501) 417-0044
+            </a>
+            <button onclick="requestQuoteFromModal()" class="flex-1 sm:flex-none px-6 py-2.5 bg-brand-yellow text-black hover:bg-amber-400 text-xs font-heading font-bold uppercase rounded flex items-center justify-center gap-1.5 shadow-md">
+              <i class="ph-bold ph-file-text"></i> Inquire On Unit
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Machinery Logic & Interactivity -->
+  <script>
+    // Equipment Dataset with Detailed Specs
+    const equipmentData = [
+      {
+        id: 1,
+        title: "55HP 4WD Enclosed Cab Tractor",
+        category: "tractors",
+        price: "$27,900",
+        numericPrice: 27900,
+        badge: "In Stock",
+        tag: "Cab Tractor",
+        specs: {
+          hp: "55 HP",
+          transmission: "Synchro Shuttle 12F/12R",
+          weight: "4,680 lbs",
+          pto: "540 RPM Independent",
+          loader: "Quick-Attach Front Bucket",
+          hydraulics: "Dual Rear Remotes"
+        },
+        description: "Equipped with factory climate-controlled cab (Heating + A/C), stereo, deluxe air ride suspension seat, and high-capacity hydraulic front loader with skid-steer style quick coupler. Ideal for hay operations, rotary bush hogging, and heavy estate management.",
+        iconType: "tractor"
+      },
+      {
+        id: 2,
+        title: "2.0-Ton Mini Excavator w/ Hydraulic Thumb",
+        category: "excavators",
+        price: "$19,500",
+        numericPrice: 19500,
+        badge: "In Stock",
+        tag: "Excavator",
+        specs: {
+          hp: "25 HP Diesel",
+          weight: "4,400 lbs",
+          digDepth: "7 ft 8 in",
+          tracks: "Rubber Continuous Tracks",
+          thumb: "Factory Hydraulic Thumb Included",
+          aux: "Auxiliary High Flow"
+        },
+        description: "Compact zero-tail swing capability allows close-quarters trenching, ditch clearing, and foundation grading. Features mechanical joystick controls, swing boom, dozer blade with float, and factory-installed hydraulic thumb for rock and log handling.",
+        iconType: "excavator"
+      },
+      {
+        id: 3,
+        title: "75HP Ag Utility Tractor (4WD)",
+        category: "tractors",
+        price: "$34,800",
+        numericPrice: 34800,
+        badge: "Low Hours / Ready",
+        tag: "Heavy Ag Tractor",
+        specs: {
+          hp: "75 HP Turbo Diesel",
+          transmission: "Power Shuttle 16F/16R",
+          weight: "6,950 lbs",
+          pto: "540 / 1000 RPM Dual",
+          loader: "Heavy Duty 84\" Bucket",
+          hitch: "Cat 2 Three-Point Hitch"
+        },
+        description: "Built for heavy ground engagement, pulling 15-foot batwing cutters, disk harrows, and heavy round balers. Equipped with cast iron wheel weights, heavy-duty planetary axles, dual remotes, and foldable ROPS structure.",
+        iconType: "tractor"
+      },
+      {
+        id: 4,
+        title: "Track Skid Steer Loader (Compact)",
+        category: "loaders",
+        price: "$32,500",
+        numericPrice: 32500,
+        badge: "In Stock",
+        tag: "Skid Steer",
+        specs: {
+          hp: "60 HP Diesel",
+          operatingCapacity: "2,200 lbs ROC",
+          weight: "7,800 lbs",
+          tracks: "12-Inch High Traction Tracks",
+          hydraulics: "Standard & High Flow Ports",
+          cab: "ROPS with Side Screens"
+        },
+        description: "Tackle sticky Arkansas mud and steep slopes with rubber tracks designed for minimum soil compaction. Features hydraulic quick-tach for all standard skid steer augers, grapples, mulchers, and trenchers.",
+        iconType: "loader"
+      },
+      {
+        id: 5,
+        title: "35HP Compact Farm Tractor + Loader",
+        category: "tractors",
+        price: "$18,900",
+        numericPrice: 18900,
+        badge: "Best Seller",
+        tag: "Compact Tractor",
+        specs: {
+          hp: "35 HP Diesel",
+          transmission: "3-Range Hydrostatic (HST)",
+          weight: "3,300 lbs",
+          pto: "30 HP Live PTO",
+          loader: "60\" Quick-Detach Bucket",
+          tires: "Industrial R4 Bar Tread"
+        },
+        description: "The ideal small farm and homestead tractor. Intuitive twin-pedal hydrostatic drive makes loader work and mowing effortless. Includes 4WD push-button engagement, differential lock, and Category 1 3-point hitch.",
+        iconType: "tractor"
+      },
+      {
+        id: 6,
+        title: "Heavy Duty Hydraulic Grapple & Implements",
+        category: "attachments",
+        price: "$3,450",
+        numericPrice: 3450,
+        badge: "In Stock",
+        tag: "Universal Attachment",
+        specs: {
+          width: "72 Inch Working Width",
+          steel: "AR400 High Tensile Steel",
+          cylinders: "Twin Dual-Action Rams",
+          mount: "Universal Skid Steer / Tractor SSQA",
+          couplers: "Standard 1/2\" Flat-Face Couplers",
+          weight: "680 lbs"
+        },
+        description: "Clear brush, storm debris, fallen logs, and boulders effortlessly. Commercial-grade tines with heavy-gauge cylinder guards and greaseable pivot pins. Fits skid steers and tractors with universal quick-attach.",
+        iconType: "attachment"
+      }
+    ];
+
+    let currentSelectedEquipment = null;
+    let currentFilter = 'all';
+
+    // Generate Equipment Silhouette SVGs
+    function getSilhouetteSVG(type) {
+      if (type === 'tractor') {
+        return `
+          <svg class="w-48 h-36 text-brand-yellow/80 group-hover:scale-105 transition-transform" viewBox="0 0 200 130" fill="none">
+            <circle cx="50" cy="95" r="28" stroke="currentColor" stroke-width="4" fill="#181B21"/>
+            <circle cx="50" cy="95" r="8" fill="currentColor"/>
+            <circle cx="150" cy="100" r="20" stroke="currentColor" stroke-width="4" fill="#181B21"/>
+            <circle cx="150" cy="100" r="6" fill="currentColor"/>
+            <path d="M50 70 L90 70 L98 50 L150 50 L160 85 L130 95 L70 95 Z" fill="#2E3542" stroke="currentColor" stroke-width="2"/>
+            <rect x="100" y="55" width="45" height="25" fill="#FFB800" rx="3"/>
+            <path d="M55 70 L65 30 L105 30 L100 70 Z" fill="#60A5FA" fill-opacity="0.3" stroke="currentColor" stroke-width="2"/>
+            <line x1="60" y1="30" x2="110" y2="30" stroke="currentColor" stroke-width="4"/>
+            <path d="M90 65 L140 45 L175 60 L185 95" stroke="#F97316" stroke-width="4" stroke-linecap="round"/>
+            <polygon points="175,85 195,85 190,105 170,105" fill="#4B5563" stroke="#F97316" stroke-width="2"/>
+          </svg>`;
+      } else if (type === 'excavator') {
+        return `
+          <svg class="w-48 h-36 text-brand-yellow/80 group-hover:scale-105 transition-transform" viewBox="0 0 200 130" fill="none">
+            <!-- Rubber tracks -->
+            <rect x="40" y="100" width="100" height="18" rx="8" stroke="currentColor" stroke-width="3" fill="#181B21"/>
+            <circle cx="50" cy="109" r="5" fill="currentColor"/>
+            <circle cx="72" cy="109" r="5" fill="currentColor"/>
+            <circle cx="95" cy="109" r="5" fill="currentColor"/>
+            <circle cx="118" cy="109" r="5" fill="currentColor"/>
+            <circle cx="130" cy="109" r="5" fill="currentColor"/>
+            <!-- House & Cab -->
+            <rect x="55" y="70" width="55" height="30" rx="4" fill="#2E3542" stroke="currentColor" stroke-width="2"/>
+            <rect x="60" y="50" width="30" height="25" rx="3" fill="#60A5FA" fill-opacity="0.3" stroke="currentColor" stroke-width="2"/>
+            <!-- Boom & Arm -->
+            <path d="M90 75 L125 35 L160 55 L175 90" stroke="#FFB800" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Bucket & Thumb -->
+            <path d="M175 90 L160 105 L180 112 Z" fill="#F97316" stroke="currentColor" stroke-width="2"/>
+            <line x1="168" y1="80" x2="160" y2="98" stroke="#E5E7EB" stroke-width="3"/>
+          </svg>`;
+      } else if (type === 'loader') {
+        return `
+          <svg class="w-48 h-36 text-brand-yellow/80 group-hover:scale-105 transition-transform" viewBox="0 0 200 130" fill="none">
+            <!-- Track chassis -->
+            <path d="M40 105 L60 92 L140 92 L155 105 L140 118 L55 118 Z" fill="#181B21" stroke="currentColor" stroke-width="3"/>
+            <!-- Cabin -->
+            <path d="M65 90 L75 45 L125 45 L135 90 Z" fill="#2E3542" stroke="currentColor" stroke-width="2"/>
+            <rect x="80" y="50" width="35" height="30" fill="#60A5FA" fill-opacity="0.3" stroke="currentColor" stroke-width="2"/>
+            <!-- Radial lift arm -->
+            <path d="M60 80 L95 65 L155 75 L175 102" stroke="#FFB800" stroke-width="5" stroke-linecap="round"/>
+            <!-- Heavy Bucket -->
+            <polygon points="165,88 188,88 182,115 160,115" fill="#4B5563" stroke="#F97316" stroke-width="2"/>
+          </svg>`;
+      } else {
+        return `
+          <svg class="w-48 h-36 text-brand-yellow/80 group-hover:scale-105 transition-transform" viewBox="0 0 200 130" fill="none">
+            <!-- Grapple Implements -->
+            <path d="M40 90 L160 90" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
+            <path d="M60 90 Q70 120 100 120 Q120 120 140 90" stroke="#F97316" stroke-width="5" fill="none"/>
+            <path d="M60 90 Q70 40 100 45 Q130 50 140 90" stroke="#FFB800" stroke-width="5" fill="none"/>
+            <line x1="100" y1="50" x2="100" y2="85" stroke="#CBD5E1" stroke-width="4"/>
+            <rect x="75" y="70" width="50" height="15" fill="#2E3542" stroke="currentColor" stroke-width="2"/>
+          </svg>`;
+      }
+    }
+
+    // Render Inventory Cards to Grid
+    function renderInventory(items) {
+      const grid = document.getElementById('equipmentGrid');
+      const noResults = document.getElementById('noResults');
+
+      if (!items || items.length === 0) {
+        grid.innerHTML = '';
+        noResults.classList.remove('hidden');
+        return;
+      }
+
+      noResults.classList.add('hidden');
+      grid.innerHTML = items.map(item => `
+        <div class="bg-brand-surface rounded-xl border border-brand-border hover:border-brand-yellow/50 transition-all duration-300 overflow-hidden flex flex-col group shadow-lg">
+          <!-- Visual Header -->
+          <div class="h-52 bg-gradient-to-b from-zinc-900 to-[#181B22] p-4 flex items-center justify-center relative border-b border-brand-border/60">
+            <span class="absolute top-3 left-3 bg-brand-dark/90 border border-brand-yellow/30 text-brand-yellow text-[11px] font-bold px-2.5 py-1 rounded uppercase tracking-wider">
+              ${item.tag}
+            </span>
+            <span class="absolute top-3 right-3 bg-emerald-950/80 border border-emerald-800 text-emerald-300 text-[11px] font-bold px-2 py-0.5 rounded flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> ${item.badge}
+            </span>
+            <div class="p-2">
+              ${getSilhouetteSVG(item.iconType)}
+            </div>
+          </div>
+
+          <!-- Card Content -->
+          <div class="p-5 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-baseline justify-between mb-2">
+                <h3 class="font-heading text-lg font-bold uppercase text-white group-hover:text-brand-yellow transition-colors leading-snug">
+                  ${item.title}
+                </h3>
+              </div>
+
+              <!-- Quick Specs Pill Row -->
+              <div class="grid grid-cols-2 gap-2 my-3 text-xs">
+                ${item.specs.hp ? `
+                  <div class="bg-brand-dark/70 p-2 rounded border border-brand-border flex items-center gap-1.5">
+                    <i class="ph-bold ph-engine text-brand-yellow"></i>
+                    <span class="text-zinc-300 font-medium">${item.specs.hp}</span>
+                  </div>` : ''}
+                ${item.specs.weight ? `
+                  <div class="bg-brand-dark/70 p-2 rounded border border-brand-border flex items-center gap-1.5">
+                    <i class="ph-bold ph-barbell text-brand-yellow"></i>
+                    <span class="text-zinc-300 font-medium">${item.specs.weight}</span>
+                  </div>` : ''}
+                ${item.specs.transmission ? `
+                  <div class="bg-brand-dark/70 p-2 rounded border border-brand-border flex items-center gap-1.5 col-span-2">
+                    <i class="ph-bold ph-gear text-brand-yellow"></i>
+                    <span class="text-zinc-300 truncate">${item.specs.transmission}</span>
+                  </div>` : ''}
+                ${item.specs.digDepth ? `
+                  <div class="bg-brand-dark/70 p-2 rounded border border-brand-border flex items-center gap-1.5">
+                    <i class="ph-bold ph-arrow-down text-brand-yellow"></i>
+                    <span class="text-zinc-300">${item.specs.digDepth} Dig</span>
+                  </div>` : ''}
+                ${item.specs.width ? `
+                  <div class="bg-brand-dark/70 p-2 rounded border border-brand-border flex items-center gap-1.5">
+                    <i class="ph-bold ph-arrows-horizontal text-brand-yellow"></i>
+                    <span class="text-zinc-300">${item.specs.width}</span>
+                  </div>` : ''}
+              </div>
+            </div>
+
+            <!-- Price & Button Footer -->
+            <div class="pt-4 border-t border-brand-border flex items-center justify-between mt-2">
+              <div>
+                <span class="text-[10px] uppercase text-zinc-500 font-semibold block">Dealership Price</span>
+                <span class="font-heading text-2xl font-bold text-brand-yellow">${item.price}</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <button onclick="openEquipmentModal(${item.id})" class="px-3.5 py-2 bg-brand-border hover:bg-zinc-700 text-white rounded text-xs font-heading uppercase font-semibold transition">
+                  Specs
+                </button>
+                <button onclick="presetCalculator(${item.numericPrice}, '${item.title}')" class="px-3.5 py-2 bg-brand-yellow hover:bg-amber-400 text-black rounded text-xs font-heading font-bold uppercase transition">
+                  Quote
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Filter by Category Function
+    function filterCategory(cat) {
+      currentFilter = cat;
+      const buttons = document.querySelectorAll('.cat-btn');
+      buttons.forEach(btn => {
+        if (btn.dataset.cat === cat) {
+          btn.className = "cat-btn active-cat px-4 py-2 rounded-md font-heading text-sm uppercase font-bold tracking-wider transition bg-brand-yellow text-black";
+        } else {
+          btn.className = "cat-btn px-4 py-2 rounded-md font-heading text-sm uppercase font-semibold tracking-wider transition bg-brand-surface text-zinc-300 hover:text-white border border-brand-border";
+        }
+      });
+
+      applyFilters();
+    }
+
+    // Filter + Search Logic
+    function applyFilters() {
+      const searchTerm = document.getElementById('inventorySearch').value.toLowerCase().trim();
+      
+      const filtered = equipmentData.filter(item => {
+        const matchesCategory = (currentFilter === 'all') || (item.category === currentFilter);
+        const matchesSearch = !searchTerm || 
+          item.title.toLowerCase().includes(searchTerm) ||
+          item.tag.toLowerCase().includes(searchTerm) ||
+          (item.specs.hp && item.specs.hp.toLowerCase().includes(searchTerm)) ||
+          item.description.toLowerCase().includes(searchTerm);
+        
+        return matchesCategory && matchesSearch;
+      });
+
+      renderInventory(filtered);
+    }
+
+    // Search Input Listener
+    document.getElementById('inventorySearch').addEventListener('input', applyFilters);
+
+    // Modal Control Functions
+    function openEquipmentModal(id) {
+      const item = equipmentData.find(e => e.id === id);
+      if (!item) return;
+      currentSelectedEquipment = item;
+
+      document.getElementById('modalTitle').textContent = item.title;
+      document.getElementById('modalSub').textContent = `Alco Stock Reference: ALC-00${item.id} • White County Yard`;
+      document.getElementById('modalPrice').textContent = item.price;
+      document.getElementById('modalCategoryBadge').textContent = item.tag;
+      document.getElementById('modalDescription').textContent = item.description;
+
+      // Render Dynamic Specs Grid in Modal
+      const specsContainer = document.getElementById('modalSpecsGrid');
+      specsContainer.innerHTML = Object.entries(item.specs).map(([key, value]) => `
+        <div class="bg-brand-dark p-3 rounded-lg border border-brand-border">
+          <span class="text-[10px] text-zinc-500 uppercase font-semibold block">${key.replace(/([A-Z])/g, ' $1')}</span>
+          <span class="text-white font-medium block mt-0.5">${value}</span>
+        </div>
+      `).join('');
+
+      // Inject visual icon in modal
+      document.getElementById('modalIconContainer').innerHTML = getSilhouetteSVG(item.iconType);
+
+      // Show modal
+      const modal = document.getElementById('equipmentModal');
+      modal.classList.remove('hidden');
+      document.body.classList.add('overflow-hidden');
+    }
+
+    function closeEquipmentModal() {
+      const modal = document.getElementById('equipmentModal');
+      modal.classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    // Preset Financing Calculator from an Equipment Card
+    function presetCalculator(price, name) {
+      const priceSlider = document.getElementById('calcPrice');
+      priceSlider.value = price;
+      updateCalculator();
+
+      const selectInterest = document.getElementById('leadInterest');
+      for (let i = 0; i < selectInterest.options.length; i++) {
+        if (selectInterest.options[i].text.includes(name.split(' ')[0])) {
+          selectInterest.selectedIndex = i;
+          break;
+        }
+      }
+
+      document.getElementById('financing').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function requestQuoteFromModal() {
+      if (currentSelectedEquipment) {
+        presetCalculator(currentSelectedEquipment.numericPrice, currentSelectedEquipment.title);
+        closeEquipmentModal();
+      }
+    }
+
+    function openCustomQuoteModal() {
+      document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+      document.getElementById('leadName').focus();
+    }
+
+    function applyForCalculatedDeal() {
+      const price = document.getElementById('calcPrice').value;
+      const monthly = document.getElementById('monthlyPaymentDisplay').textContent;
+      const messageField = document.getElementById('leadMessage');
+      messageField.value = `Inquiring about equipment price ~$${Number(price).toLocaleString()} with targeted payment around ${monthly}/month. Please call me with options.`;
+      
+      document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+      document.getElementById('leadName').focus();
+    }
+
+    // Loan / Payment Calculator Formula
+    function updateCalculator() {
+      const price = parseFloat(document.getElementById('calcPrice').value);
+      const down = parseFloat(document.getElementById('calcDown').value);
+      const apr = parseFloat(document.getElementById('calcRate').value);
+      const term = parseInt(document.getElementById('calcTerm').value, 10);
+
+      document.getElementById('priceValDisplay').textContent = '$' + price.toLocaleString();
+      document.getElementById('downValDisplay').textContent = '$' + down.toLocaleString();
+      document.getElementById('rateValDisplay').textContent = apr.toFixed(1) + '%';
+
+      const principal = Math.max(0, price - down);
+      
+      if (principal <= 0) {
+        document.getElementById('monthlyPaymentDisplay').textContent = '$0';
+        return;
+      }
+
+      const monthlyRate = (apr / 100) / 12;
+      let monthlyPayment = 0;
+
+      if (monthlyRate === 0) {
+        monthlyPayment = principal / term;
+      } else {
+        monthlyPayment = (principal * monthlyRate * Math.pow(1 + monthlyRate, term)) / (Math.pow(1 + monthlyRate, term) - 1);
+      }
+
+      document.getElementById('monthlyPaymentDisplay').textContent = '$' + Math.round(monthlyPayment).toLocaleString();
+    }
+
+    // Calculator event listeners
+    ['calcPrice', 'calcDown', 'calcRate', 'calcTerm'].forEach(id => {
+      document.getElementById(id).addEventListener('input', updateCalculator);
+    });
+
+    // Contact Form Submission Handler
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      const successMsg = document.getElementById('formSuccessMessage');
+      successMsg.classList.remove('hidden');
+
+      // Reset fields smoothly
+      setTimeout(() => {
+        document.getElementById('contactForm').reset();
+      }, 500);
+
+      // Hide success note after 8 seconds
+      setTimeout(() => {
+        successMsg.classList.add('hidden');
+      }, 8000);
+    }
+
+    // Mobile Menu Toggle
+    document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('hidden');
+    });
+
+    // Close modal on escape key or outside click
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeEquipmentModal();
+    });
+
+    document.getElementById('equipmentModal').addEventListener('click', (e) => {
+      if (e.target.id === 'equipmentModal') closeEquipmentModal();
+    });
+
+    // Initialize Page Content
+    window.addEventListener('DOMContentLoaded', () => {
+      renderInventory(equipmentData);
+      updateCalculator();
+      document.getElementById('count-all').textContent = equipmentData.length;
+    });
+  </script>
+</body>
+</html>
